@@ -1,0 +1,41 @@
+{
+  "name": "sportsmag",
+  "version": "1.0.0",
+  "description": "ui practice",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js & webpack -d --watch",
+    "nodemon": "nodemon server/server.js & webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaorq/sportsMag.git"
+  },
+  "author": "Tianyi Zhao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaorq/sportsMag/issues"
+  },
+  "homepage": "https://github.com/zhaorq/sportsMag#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.1",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.3",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.12.1",
+    "webpack": "^3.6.0"
+  }
+}
