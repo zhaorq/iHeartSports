@@ -11,15 +11,49 @@ class Name extends Component {
   constructor(props) {
     super(props);
 
-
+    this.state = Object.assign({}, props.name),
+    this.updateNameFromModal = this.updateNameFromModal.bind(this);
   }
 
+  updateNameFromModal() {
+     this.props.updateName(this.state); 
+     this.saveNameToFile(); 
+  }
+
+  saveNameToFile() {
+    fetch('/data', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: this.state })
+    })
+      .catch(err => console.log(err));
+  }
 
   render() {
     console.log('isModalOpen', this.props.isModalOpen)
     return (
       <div>
-
+        <div>
+          <h2>Name</h2>
+          <p>{`${this.props.name.first} ${this.props.name.last}`}</p>
+        </div>
+        <div>
+          <button onClick={this.props.openModal} >Edit Name</button>
+        </div>
+        {
+          this.props.isModalOpen &&
+          <Modal>
+            <NameModal
+              name={this.props.name}
+              closeModal={this.props.closeModal}
+              setNameState={this.setState.bind(this)}
+              updateNameFromModal={this.updateNameFromModal}
+            />
+          </Modal>
+        }
       </div>
     )
   }
