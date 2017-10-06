@@ -32,6 +32,5 @@ const modal = (state = {}, action) => {
 }
 
 
-
 const rootReducer = combineReducers({ name, address, teams, modal });
 export default rootReducer;

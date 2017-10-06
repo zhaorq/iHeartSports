@@ -4,8 +4,11 @@ import NameModal from './nameModal';
 import Modal from './modal';
 import { updateName, openModal, closeModal } from './../actions/actions';
 
-/* problem here is how to create the modal component and keep track of the modal window state? 
-I considered one way is to create a separate modal component that passes any change of the state to its parent component.
+/* the challenge here is how to create a modal-like child component that updates the state of its parent component. 
+I've considered two options: one is using bootstrap's build-in Modal, but this way we would have to be constraint to 
+bootstrap's frameworks and compromise flexibility. Another way is to build from scratch. This takes longer and involves 
+more thinking towards the architecture, but would offer a more scalable module that can be reused. Hence, I chose the 
+latter option. 
 */
 
 class Name extends Component {
