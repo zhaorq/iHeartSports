@@ -23,7 +23,8 @@ class App extends Component {
       .then(response => {
         const data = JSON.parse(response);
         /* everytime this App is mounted, we want to fetch data from the 
-        JSON file to update the states for each child component to use */
+        JSON file to populate the states for each child component to use, 
+        conditionally rendering the actions. */
         data.name && this.props.updateName(data.name);
         data.address && this.props.updateAddress(data.address);
         data.teams && this.props.updateTeams(data.teams);
