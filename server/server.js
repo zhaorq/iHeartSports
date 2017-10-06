@@ -6,7 +6,6 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '../public/')));
 app.use( bodyParser.json() );
-
 app.use(routes);
 
 const port = process.env.PORT || 8888;
