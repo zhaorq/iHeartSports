@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import AddressModal from './addressModal';
 import { updateAddress, openModal, closeModal } from './../actions/actions';
 
+//This component is very similiar to the Name component. 
 class Address extends Component {
   constructor(props) {
     super(props);

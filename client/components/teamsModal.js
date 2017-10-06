@@ -16,11 +16,14 @@ class TeamsModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //keep track on changes of the parent component
       childTeams: this.props.teams
     }
     this.addOneTeam = this.addOneTeam.bind(this);
   }
-
+/*This function adds one empty string to the end of the team array. 
+I chose to updating the local state (childTeams) instead of the parent's
+team array (this.props.teams) because it's easier and faster for updates */
   addOneTeam() {
     const newTeam = [...this.state.childTeams, ""];
     this.setState({ childTeams: newTeam });

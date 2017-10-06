@@ -11,11 +11,11 @@ class Name extends Component {
   }
 
   /* componentWillReceiveProps allows us to extract the new props and update our internal state. 
-  Any time the user types into the <input /> this begins an Update for the Person component. */
+  Any time the user types into the <input /> this begins an update for the parent component. */
   componentWillReceiveProps(nextProps) {
     this.state = nextProps.name;
   }
-
+//When click save, update the 'store' and save to the JSON file. 
   updateNameFromModal() {
      this.props.updateName(this.state); 
      this.saveNameToFile(); 
