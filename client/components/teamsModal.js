@@ -7,7 +7,9 @@ user adds a new textbox. However, even the parent component (teams)'s
 state changed as user clicked the 'add one' button, it doesn't immediately re-render 
 to update the child componenet. To solve the issue, I made the TeamModal a 
 stateful component with a state that 'tracks' the change of the parent 
-component's state, thus re-rendering the TeamsModal each time when state changes. 
+component's state, thus re-rendering the TeamsModal each time when the parent state changes.
+The loop is like: child modal updates => parent state changes => child state changes =>
+child re-rendered.  
 */
 
 class TeamsModal extends Component {

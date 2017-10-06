@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TeamsModal from './teamsModal';
-import Modal from './modal';
 import { updateTeams, openModal, closeModal } from './../actions/actions';
 
 class Teams extends Component {
@@ -51,14 +50,12 @@ class Teams extends Component {
         </div>
         {
           this.props.isModalOpen &&
-          <Modal>
             <TeamsModal
               teams={this.state.teams}
               closeModal={this.props.closeModal}
               setTeamsState={this.setState.bind(this)}
               updateTeamsFromModal={this.updateTeamsFromModal}
             />
-          </Modal>
         }
       </div>
     )

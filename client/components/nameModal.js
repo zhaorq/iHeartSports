@@ -1,5 +1,9 @@
 import React from 'react';
 
+/*I made three child modals for each component for this simply app. If it's for
+a large app that contains a number of components, I would build a reuseful modal
+prototype that can be modified to a specific child modal. 
+*/
 const NameModal = (props) => (
   <div className="modal-container">
     <div>

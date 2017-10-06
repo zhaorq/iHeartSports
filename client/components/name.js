@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NameModal from './nameModal';
-import Modal from './modal';
 import { updateName, openModal, closeModal } from './../actions/actions';
 
 class Name extends Component {
@@ -10,6 +9,9 @@ class Name extends Component {
     this.state = Object.assign({}, props.name)
     this.updateNameFromModal = this.updateNameFromModal.bind(this);
   }
+
+  /* componentWillReceiveProps allows us to extract the new props and update our internal state. 
+  Any time the user types into the <input /> this begins an Update for the Person component. */
   componentWillReceiveProps(nextProps) {
     this.state = nextProps.name;
   }
@@ -44,14 +46,12 @@ class Name extends Component {
         </div>
         {
           this.props.isModalOpen &&
-          <Modal>
             <NameModal
               name={this.props.name}
               closeModal={this.props.closeModal}
               setNameState={this.setState.bind(this)}
               updateNameFromModal={this.updateNameFromModal}
             />
-          </Modal>
         }
       </div>
     )

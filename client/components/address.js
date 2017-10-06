@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AddressModal from './addressModal';
-import Modal from './modal';
 import { updateAddress, openModal, closeModal } from './../actions/actions';
 
 class Address extends Component {
@@ -50,14 +49,12 @@ class Address extends Component {
         </div>
         {
           this.props.isModalOpen &&
-          <Modal>
             <AddressModal
               address={this.props.address}
               closeModal={this.props.closeModal}
               setAddressState={this.setState.bind(this)}
               updateAddressFromModal={this.updateAddressFromModal}
             />
-          </Modal>
         }
       </div>
     )
