@@ -10,7 +10,7 @@ class Teams extends Component {
 
     this.state = {
       teams: [...props.teams]
-    }; 
+    };
     this.updateTeamsFromModal = this.updateTeamsFromModal.bind(this);
   }
 
@@ -19,11 +19,10 @@ class Teams extends Component {
   }
 
   updateTeamsFromModal() {
-     const cleanTeam = this.state.teams.filter(team => team!==""); 
-     this.props.updateTeams(cleanTeam); 
-     this.saveTeamsToFile(cleanTeam); 
+    const cleanTeam = this.state.teams.filter(team => team !== "");
+    this.props.updateTeams(cleanTeam);
+    this.saveTeamsToFile(cleanTeam);
   }
-  
 
   saveTeamsToFile(updatedTeams) {
     fetch('/data', {
@@ -38,13 +37,12 @@ class Teams extends Component {
   }
 
   render() {
-    console.log('this.props.teams', this.props.teams)
     return (
       <div>
         <div>
           <h2>Favourite Teams</h2>
           {
-            this.props.teams.map((team,i) => (
+            this.props.teams.map((team, i) => (
               <p key={i}>{team}</p>
             ))}
         </div>

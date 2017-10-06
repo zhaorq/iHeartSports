@@ -1,40 +1,64 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const TeamsModal = (props) => (
-  <div>
-    <div>
-      <button onClick={props.closeModal}>Close</button>
-      <h3>Add Teams</h3>
-    </div>
-    <div>
-      {
-        props.teams.map((team, i) => (
-          <label>
-        <span>Team {i+1}:</span>
-        <input type="text" defaultValue={team} onChange={
-          e => {props.teams[i] = e.target.value; 
-          props.setTeamsState({ teams: props.teams })}
-        }
-         />
-      </label>
-        ))
-      }
-    </div>
-    <div>
-      <button onClick={()=> props.addOneTeam()}> 
-      + Add Another</button>
-    </div>
-    <div>
-      <button onClick={props.closeModal}>Cancel</button>
-      <button
-        onClick={() => {
-          props.updateTeamsFromModal();
-          props.closeModal();
-        }}>
-        Save
-      </button>
-    </div>
-  </div>
-);
+/*
+The teamModal is a bit tricky compared to the another two: 
+this modal as a child component needs to be re-rendered everytime when
+user adds a new textbox. However, even the parent component (teams)'s 
+state changed as user clicked the 'add one' button, it doesn't immediately re-render 
+to update the child componenet. To solve the issue, I made the TeamModal a 
+stateful component with a state that 'tracks' the change of the parent 
+component's state, thus re-rendering the TeamsModal each time when state changes. 
+*/
+
+class TeamsModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      childTeams: this.props.teams
+    }
+    this.addOneTeam = this.addOneTeam.bind(this);
+  }
+
+  addOneTeam() {
+    const newTeam = [...this.state.childTeams, ""];
+    this.setState({ childTeams: newTeam });
+  }
+  render() {
+    return (
+      <div className="modal-container">
+        <div>
+          <h3>Add Teams</h3>
+        </div>
+        <div>
+          {
+            this.state.childTeams.map((team, i) => (
+              <label>
+                <span>Team {i + 1}:</span>
+                <input type="text" defaultValue={team} onChange={e => {
+                  this.props.teams[i] = e.target.value;
+                  this.props.setTeamsState({ teams: this.props.teams })
+                }}
+                />
+              </label>
+            ))}
+        </div>
+        <div>
+          <button className="add-one-btn" onClick={() => { this.addOneTeam() }}>
+            + Add Another</button>
+        </div>
+        <div className="modal-footer">
+          <button
+            onClick={() => {
+              this.props.updateTeamsFromModal();
+              this.props.closeModal();
+            }}>Save
+        </button>
+          <button className="cancel-button" onClick={this.props.closeModal}>Cancel</button>
+          <button onClick={this.props.closeModal}>Close</button>
+        </div>
+      </div>
+    )
+  }
+}
 
 export default TeamsModal;

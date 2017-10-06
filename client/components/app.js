@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Navbar from './navbar';
 import Name from './name';
 import Address from './address';
 import Teams from './teams';
@@ -16,10 +15,12 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         const data = JSON.parse(response);
+        /* everytime this App is mounted, we want to fetch data from the 
+        JSON file to update the states for each child component to use */
         data.name && this.props.updateName(data.name);
         data.address && this.props.updateAddress(data.address);
-        data.teams && this.props.updateTeams(data.teams);  
-        console.log('data.name',data.name); 
+        data.teams && this.props.updateTeams(data.teams);
+        console.log('data.name', data.name);
       })
       .catch(err => console.log(err));
   }
@@ -27,11 +28,15 @@ class App extends Component {
   render() {
     return (
       <div>
-          <Navbar />
-          <h2 className="header2">Sports Magazine Settings</h2>
-          <Name />
-          <Address />
-          <Teams />
+        <div id="header">
+          <h1>Sports Magazine</h1>
+        </div>
+        <div id="content">
+        <h2>Sports Magazine Settings</h2>
+        <Name />
+        <Address />
+        <Teams />
+        </div>
       </div>
     );
   }
@@ -49,4 +54,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(null,mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

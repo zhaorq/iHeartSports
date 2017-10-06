@@ -9,12 +9,16 @@ class Address extends Component {
     super(props);
 
     this.state = Object.assign({}, props.address),
-    this.updateAddressFromModal = this.updateAddressFromModal.bind(this);
+      this.updateAddressFromModal = this.updateAddressFromModal.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.state = nextProps.address;
   }
 
   updateAddressFromModal() {
-     this.props.updateAddress(this.state); 
-     this.saveAddressToFile(); 
+    this.props.updateAddress(this.state);
+    this.saveAddressToFile();
   }
 
   saveAddressToFile() {
@@ -38,7 +42,8 @@ class Address extends Component {
           <p>{`${this.props.address.street} 
                ${this.props.address.city}
                ${this.props.address.state}
-               ${this.props.address.zip}`}</p>
+               ${this.props.address.zip}`}
+          </p>
         </div>
         <div>
           <button onClick={this.props.openModal} >Edit Address</button>

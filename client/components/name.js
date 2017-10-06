@@ -7,12 +7,15 @@ import { updateName, openModal, closeModal } from './../actions/actions';
 /* problem here is how to create the modal component and keep track of the modal window state? 
 I considered one way is to create a separate modal component that passes any change of the state to its parent component.
 */
+
 class Name extends Component {
   constructor(props) {
     super(props);
-
-    this.state = Object.assign({}, props.name),
+    this.state = Object.assign({}, props.name)
     this.updateNameFromModal = this.updateNameFromModal.bind(this);
+  }
+  componentWillReceiveProps(nextProps) {
+    this.state = nextProps.name;
   }
 
   updateNameFromModal() {
@@ -27,13 +30,13 @@ class Name extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name: this.state })
+      body: JSON.stringify( {name: this.state} )
     })
       .catch(err => console.log(err));
   }
 
   render() {
-    console.log('isModalOpen', this.props.isModalOpen)
+    console.log('isModalOpen', this.props.isModalOpen);
     return (
       <div>
         <div>

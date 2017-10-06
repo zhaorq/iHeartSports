@@ -4,8 +4,7 @@
   "description": "ui practice",
   "main": "server.js",
   "scripts": {
-    "start": "node server/server.js & webpack -d --watch",
-    "nodemon": "nodemon server/server.js & webpack -d --watch"
+    "start": "nodemon server/server.js & webpack -d --watch"
   },
   "repository": {
     "type": "git",
@@ -19,16 +18,11 @@
   "homepage": "https://github.com/zhaorq/sportsMag#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "bootstrap": "^3.3.7",
     "express": "^4.16.1",
-    "morgan": "^1.9.0",
     "path": "^0.12.7",
     "react": "^16.0.0",
-    "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2"
   },
   "devDependencies": {

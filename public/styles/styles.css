@@ -1,17 +1,92 @@
 
 body {
-    background-color: #D5D8DA;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    height: 100%;
-  }
+  background-color: #D5D8DA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  height: 100%;
+  margin-left: 50px; 
+}
 
-  button {
-    font-family: sans-serif;
-    font-size: 15px;
-    padding: 10px;
-    background: #4286f4;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+#header {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  display: block;
+  background-color: black;
+  height: 60px;
+  width: 100%;
+}
+
+#content {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-top: 100px;
+}
+
+h1 {
+  color: white; 
+}
+h1, h2, h3, button {
+  font-family: sans-serif;
+}
+
+label {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+input {
+  font-size: 16px;
+}
+
+button {
+  font-family: sans-serif;
+  font-size: 15px;
+  padding: 10px;
+  background: #0073D0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 40px; 
+  width: 150px; 
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 10px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+span {
+  min-width: 200px;
+}
+
+.modal-container {
+  background-color: white;
+  width: 50%;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-footer {
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.cancel-button {
+  background-color:	#053259;
+}
+
+.add-one-btn {
+  background-color:	transparent;
+  color: blue; 
+  font-size: 16px; 
+}
