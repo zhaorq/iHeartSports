@@ -12,7 +12,10 @@ class Teams extends Component {
       teams: [...props.teams]
     }; 
     this.updateTeamsFromModal = this.updateTeamsFromModal.bind(this);
-    this.addOneTeam = this.addOneTeam.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.state.teams = [...nextProps.teams];
   }
 
   updateTeamsFromModal() {
@@ -21,12 +24,6 @@ class Teams extends Component {
      this.saveTeamsToFile(cleanTeam); 
   }
   
-  addOneTeam() {
-    const newTeam = [...this.state.teams, ""]; 
-    this.setState({teams: newTeam}); 
-    // this.props.closeModal();
-    // this.props.openModal();
-  }
 
   saveTeamsToFile(updatedTeams) {
     fetch('/data', {
@@ -62,7 +59,6 @@ class Teams extends Component {
               closeModal={this.props.closeModal}
               setTeamsState={this.setState.bind(this)}
               updateTeamsFromModal={this.updateTeamsFromModal}
-              addOneTeam={this.addOneTeam}
             />
           </Modal>
         }
