@@ -12,10 +12,6 @@
   },
   "author": "Tianyi Zhao",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/zhaorq/sportsMag/issues"
-  },
-  "homepage": "https://github.com/zhaorq/sportsMag#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.1",
