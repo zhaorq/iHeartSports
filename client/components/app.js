@@ -5,6 +5,13 @@ import Address from './address';
 import Teams from './teams';
 import { updateName, updateAddress, updateTeams } from './../actions/actions';
 
+/* the challenge here is to create a modal-like child component that updates the state of its parent component. 
+I've considered two options: one is using bootstrap's build-in Modal; it's a developed tool that can be easily used 
+but we would have to be constraint to bootstrap's frameworks and compromise flexibility. Another way is to 
+build from scratch. This takes longer and involves more thinking towards the app architecture, but would offer us
+a more scalable module that can be reused. Hence, I went with the latter option. 
+*/
+
 class App extends Component {
   constructor(props) {
     super(props);

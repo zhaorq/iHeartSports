@@ -23,6 +23,7 @@ const teams = (state = [], action) => {
 
 const modal = (state = {}, action) => {
   if(action.type === "OPEN_MODAL") {
+    //the original open status for all categories is false. 
      return Object.assign({name: false, address: false, teams: false},action.payload)
   }
   if(action.type === "CLOSE_MODAL") {
