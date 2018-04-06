@@ -10,8 +10,9 @@ class Name extends Component {
     this.updateNameFromModal = this.updateNameFromModal.bind(this);
   }
 
-  /* componentWillReceiveProps allows us to extract the new props and update our internal state. 
-  Any time the user types into the <input /> this begins an update for the parent component. */
+  /* componentWillReceiveProps allows us to proceed after the data
+  in its parent component (App) is populated and passed down to this component. 
+  */
   componentWillReceiveProps(nextProps) {
     this.state = nextProps.name;
   }

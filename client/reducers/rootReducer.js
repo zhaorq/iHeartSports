@@ -23,7 +23,9 @@ const teams = (state = [], action) => {
 
 const modal = (state = {}, action) => {
   if(action.type === "OPEN_MODAL") {
-    //the original open status for all categories is false. 
+    /*we want to make sure that only one modal can be open at a time, so each time 
+     user opens a modal, we merge the status of the open modal with an object in which 
+     all properties' value is false to return an object with only one open property*/
      return Object.assign({name: false, address: false, teams: false},action.payload)
   }
   if(action.type === "CLOSE_MODAL") {

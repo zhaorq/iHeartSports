@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Name from './name';
 import Address from './address';
-import Teams from './teams';
+import Teams from './teams'; 
 import { updateName, updateAddress, updateTeams } from './../actions/actions';
 
 /* the challenge here is to create a modal-like child component that updates the state of its parent component. 
@@ -41,6 +41,7 @@ class App extends Component {
         </div>
         <div id="content">
         <h2>Sports Magazine Settings</h2>
+
         <Name />
         <Address />
         <Teams />
