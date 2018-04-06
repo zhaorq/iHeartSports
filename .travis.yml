@@ -2,3 +2,8 @@ language: node_js
 node_js:
   - "iojs"
   - "7"
+
+  deploy:
+  provider: heroku
+  api_key:
+    secure: "2df7cd3f-a259-4ca1-95f0-1f67ac05bdd3"
