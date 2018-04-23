@@ -1,0 +1,14 @@
+{
+  "projectId": "psawvi",
+  "baseUrl":"http://localhost:8888",
+  "screenshotOnHeadlessFailure":true,
+  "defaultCommandTimeout":4000,
+  "execTimeout":60000,
+  "requestTimeout":5000,
+  "responseTimeout":30000,
+  "fixturesFolder": "cypress/fixtures",
+  "integrationFolder":"cypress/integration",
+  "pluginsFile":"cypress/plugins/index.js",
+  "screenshotsFolder":"cypress/screenshots",
+  "supportFile":"cypress/support/index.js"
+}

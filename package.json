@@ -4,7 +4,8 @@
   "description": "ui practice",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server/server.js & webpack -d --watch"
+    "start": "nodemon server/server.js & webpack -d --watch",
+    "cypress:open":"cypress open"
   },
   "repository": {
     "type": "git",
@@ -14,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cypress": "^2.1.0",
     "express": "^4.16.1",
     "path": "^0.12.7",
     "react": "^16.0.0",

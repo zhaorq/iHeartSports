@@ -43,7 +43,7 @@ class Name extends Component {
           <p>{`${this.props.name.first} ${this.props.name.last}`}</p>
         </div>
         <div>
-          <button onClick={this.props.openModal} >Edit Name</button>
+          <button data-test="edit-name" onClick={this.props.openModal} >Edit Name</button>
         </div>
         {
           this.props.isModalOpen &&
